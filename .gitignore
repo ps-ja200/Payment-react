@@ -1,0 +1,15 @@
+# Ignore node_modules folder
+node_modules/
+
+# Ignore Expo files
+.expo/
+
+# Ignore log files
+*.log
+
+# Ignore environment files
+.env
+
+# Ignore package lock files
+package-lock.json
+yarn.lock

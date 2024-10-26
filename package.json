@@ -1,0 +1,22 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@react-native-community/cli-server-api": "^15.0.0",
+    "expo": "^51.0.38",
+    "react-native": "0.74.5",
+    "react-native-url-polyfill": "^2.0.0",
+    "react": "18.2.0",
+    "@expo/vector-icons": "^14.0.3"
+  },
+  "devDependencies": {
+    "metro": "~0.80.8"
+  }
+}

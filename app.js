@@ -1,11 +1,10 @@
-// App.js
 import React, { useState, useEffect } from 'react';
 import { SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import * as Font from 'expo-font';
-import AppLoading from 'expo-app-loading';
+import * as SplashScreen from 'expo-splash-screen';
 
 import Dashboard from './Screens/Dashboard';
 import TransactionsScreen from './Screens/TransactionsScreen';
@@ -17,19 +16,27 @@ const Tab = createBottomTabNavigator();
 const App = () => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
-  const loadFonts = async () => {
-    await Font.loadAsync({
-      ...Ionicons.font,
-    });
-    setFontsLoaded(true);
-  };
-
   useEffect(() => {
+    const loadFonts = async () => {
+      try {
+        await SplashScreen.preventAutoHideAsync();
+        await Font.loadAsync({
+          ...Ionicons.font,
+          ...MaterialIcons.font,
+        });
+        setFontsLoaded(true);
+      } catch (error) {
+        console.warn(error);
+      } finally {
+        SplashScreen.hideAsync();
+      }
+    };
+
     loadFonts();
   }, []);
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null; // Don't render anything until fonts are loaded
   }
 
   return (
@@ -40,19 +47,19 @@ const App = () => {
             tabBarIcon: ({ color, size }) => {
               let iconName;
               if (route.name === 'Home') {
-                iconName = 'home-outline';
+                iconName = 'home';
               } else if (route.name === 'Transactions') {
-                iconName = 'card-outline';
+                iconName = 'credit-card'; // Updated icon name
               } else if (route.name === 'Contacts') {
-                iconName = 'people-outline';
+                iconName = 'people'; // Updated icon name
               } else if (route.name === 'Profile') {
-                iconName = 'person-outline';
+                iconName = 'person'; // Updated icon name
               }
-              return <Ionicons name={iconName} size={size} color={color} />;
+              return <MaterialIcons name={iconName} size={size} color={color} />;
             },
             tabBarActiveTintColor: '#007AFF',
             tabBarInactiveTintColor: 'gray',
-            headerShown: false
+            headerShown: false,
           })}
         >
           <Tab.Screen name="Home" component={Dashboard} />

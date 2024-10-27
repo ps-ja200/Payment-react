@@ -1,15 +1,22 @@
 {
-    "expo": {
-      "name": "react",
-      "slug": "react",
-      "version": "1.0.0",
-      "sdkVersion": "51.0.0",
-      "platforms": ["ios", "android", "web"],
-      "assetBundlePatterns": ["**/*"],
-      "ios": {
-        "supportsTablet": true
-      },
-      "android": {}
+  "expo": {
+    "name": "react",
+    "slug": "react",
+    "version": "1.0.0",
+    "sdkVersion": "51.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.anonymous.react"
     }
   }
-  
+}

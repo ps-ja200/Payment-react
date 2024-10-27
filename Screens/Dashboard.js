@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, TextInput } from 'react-native';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { Ionicons, FontAwesome, MaterialIcons } from '@expo/vector-icons';
 // Dashboard Screen Component
 const Dashboard = () => {
   return (

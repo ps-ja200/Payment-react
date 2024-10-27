@@ -25,6 +25,7 @@ const TransactionsScreen = () => {
   const [searchText, setSearchText] = useState('');
   const [isSearchVisible, setIsSearchVisible] = useState(false); // New state for search visibility
 
+
   const filteredTransactions = transactions.filter(transaction =>
     transaction.name.toLowerCase().includes(searchText.toLowerCase())
   );
@@ -40,9 +41,9 @@ const TransactionsScreen = () => {
     <ScrollView style={transactionsStyles.container}>
       <View style={transactionsStyles.headerContainer}>
         <Text style={transactionsStyles.headerText}>Transactions</Text>
-        {/* Search Icon */}
+        <Ionicons name="search" size={24} color="#000" />
         <TouchableOpacity onPress={() => setIsSearchVisible(!isSearchVisible)}>
-          <Ionicons name="search" size={24} color="#000000" style={transactionsStyles.searchIcon} />
+          
         </TouchableOpacity>
       </View>
 
@@ -131,6 +132,7 @@ const transactionsStyles = StyleSheet.create({
   },
   icon: {
     marginRight: 10,
+    color:'#000000',
   },
   transactionDetails: {
     flex: 1,
@@ -151,7 +153,8 @@ const transactionsStyles = StyleSheet.create({
     marginLeft: 15,
   },
   searchIcon: {
-    marginLeft: 10, // Adds some spacing between the text and icon
+    marginLeft: 10,
+     // Adds some spacing between the text and icon
   },
 });
 

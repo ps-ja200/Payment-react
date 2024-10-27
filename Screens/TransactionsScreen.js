@@ -41,11 +41,11 @@ const TransactionsScreen = () => {
     <ScrollView style={transactionsStyles.container}>
       <View style={transactionsStyles.headerContainer}>
         <Text style={transactionsStyles.headerText}>Transactions</Text>
-        
-        <TouchableOpacity onPress={() => setIsSearchVisible(!isSearchVisible)}>
-          
-        </TouchableOpacity>
-      </View>
+          <TouchableOpacity onPress={() => setIsSearchVisible(!isSearchVisible)}>
+            <Image source={require('../images/search_icon.png')} style={transactionsStyles.transactionimage} />
+          </TouchableOpacity>
+       </View>
+
 
       {/* Search Input (visible only when isSearchVisible is true) */}
       {isSearchVisible && (
@@ -93,6 +93,7 @@ const transactionsStyles = StyleSheet.create({
     borderBottomWidth: 1,  // Adds a thin line at the bottom of the header
       borderBottomColor: '#dcdcdc',  // Customize color as desired
       shadowColor: 'transparent',
+    paddingBottom:15
   },
   headerText: {
     fontSize: 24,
@@ -155,17 +156,18 @@ const transactionsStyles = StyleSheet.create({
   transactionHeader: {
     marginLeft: 15,
   },
-  searchIcon: {
-    marginLeft: 10,
-     // Adds some spacing between the text and icon
-  },
   personimage:{
     width: 45,
     height: 45,
     borderRadius: 15,
     marginRight: 10,
-    
-    
+  },
+  transactionimage:{
+    width: 30,
+    height: 30,
+    marginLeft: 60,
+    marginBottom: 5,
+    resizeMode: 'contain',  // Scales the image to fit the width while maintaining aspect ratio
   }
 });
 

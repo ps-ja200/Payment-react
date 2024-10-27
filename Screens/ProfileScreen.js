@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView,Image } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
 
@@ -9,7 +9,7 @@ const ProfileScreen = () => {
       <View style={styles.header}>
         <Text style={styles.title}>My Profile</Text>
         <TouchableOpacity>
-          <Ionicons name="pencil-outline" size={20} color="#000" />
+          <Image source={require("../images/edit_icon.png")} style={styles.editicon}/>
         </TouchableOpacity>
       </View>
 
@@ -22,27 +22,27 @@ const ProfileScreen = () => {
 
       <ScrollView contentContainerStyle={styles.optionsList}>
         <TouchableOpacity style={styles.option}>
-          <Ionicons name="person-outline" size={20} color="#000" style={styles.optionIcon} />
+        <Image source={require("../images/profile_icon.png")} style={styles.optionIcon} />
           <Text style={styles.optionText}>My Info</Text>
-          <Ionicons name="chevron-forward-outline" size={20} color="#000" />
+          <Image source={require("../images/arrow_icon.png")}style={styles.arrowicon}/>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.option}>
-          <Ionicons name="card-outline" size={20} color="#000" style={styles.optionIcon} />
+        <Image source={require("../images/card_icon.png")} style={styles.optionIcon} />
           <Text style={styles.optionText}>My Cards</Text>
-          <Ionicons name="chevron-forward-outline" size={20} color="#000" />
+          <Image source={require("../images/arrow_icon.png")}style={styles.arrowicon}/>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.option}>
-          <Ionicons name="settings-outline" size={20} color="#000" style={styles.optionIcon} />
+        <Image source={require("../images/settings_icon.png")} style={styles.optionIcon} />
           <Text style={styles.optionText}>Settings</Text>
-          <Ionicons name="chevron-forward-outline" size={20} color="#000" />
+          <Image source={require("../images/arrow_icon.png")}style={styles.arrowicon}/>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.option}>
-          <Ionicons name="help-circle-outline" size={20} color="#000" style={styles.optionIcon} />
+        <Image source={require("../images/help_icon.png")} style={styles.optionIcon} />
           <Text style={styles.optionText}>Help Center</Text>
-          <Ionicons name="chevron-forward-outline" size={20} color="#000" />
+          <Image source={require("../images/arrow_icon.png")} style={styles.arrowicon}/>
         </TouchableOpacity>
       </ScrollView>
     </View>
@@ -97,14 +97,16 @@ const styles = StyleSheet.create({
   option: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 25,
-    paddingHorizontal: 10,
+    paddingVertical: 20,
+    paddingHorizontal: 20,
     backgroundColor: '#fff',
     borderRadius: 10,
     marginVertical: 10,
   },
   optionIcon: {
     marginRight: 15,
+    height:30,
+    width:30
   },
   optionText: {
     flex: 1,
@@ -112,6 +114,15 @@ const styles = StyleSheet.create({
     color: '#333',
     fontWeight: 'bold'
   },
+  editicon: {
+    width:30,
+    height:30,
+  },
+  arrowicon:{
+    width:30,
+    height:30,
+    marginLeft:10,
+  }
 });
 
 export default ProfileScreen;

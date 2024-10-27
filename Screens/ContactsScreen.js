@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, TextInput, Image } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import AntDesign from '@expo/vector-icons/AntDesign';
 
@@ -25,7 +25,7 @@ const ContactsScreen = () => {
           <View style={contactsStyles.header}>
             <Text style={contactsStyles.headerText}>Contacts</Text>
             <TouchableOpacity style={contactsStyles.addIcon}>
-              <Ionicons name="add-circle-outline" size={24} color="#000" />
+              <Image source={require('../images/add_icon.png')} style={contactsStyles.addIcon}/>
             </TouchableOpacity>
           </View>
           <TextInput
@@ -37,17 +37,17 @@ const ContactsScreen = () => {
           <ScrollView>
             {filteredContacts.map((contact, index) => (
               <View key={index} style={contactsStyles.contactItem}>
-                <Ionicons name="person-circle-outline" size={40} color="#000" />
+                <Image source={require('../images/person.png')} style={contactsStyles.personimage}/>
                 <View style={contactsStyles.contactDetails}>
                   <Text style={contactsStyles.contactName}>{contact.name}</Text>
                   <Text style={contactsStyles.contactEmail}>{contact.email}</Text>
                 </View>
                 <View style={contactsStyles.contactIcons}>
                   <TouchableOpacity style={contactsStyles.callIcon}>
-                    <Ionicons name="caretup" size={25} color="#fff" />
+                    <Image source={require("../images/send_icon.png")} style={contactsStyles.callIcon}/>
                   </TouchableOpacity>
                   <TouchableOpacity style={contactsStyles.messageIcon}>
-                    <AntDesign name="caretdown" size={25} color="#fff" />
+                  <Image source={require("../images/request_icon.png")} style={contactsStyles.messageIcon}/>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -70,7 +70,10 @@ const contactsStyles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between', // Aligns "Contacts" text to the left and "+" icon to the right
-      marginTop:30
+      marginTop:60,
+      borderBottomWidth:1,
+      borderBottomColor: '#dcdcdc',
+      paddingBottom:15
     },
     addIcon: {
       padding: 30,
@@ -82,7 +85,7 @@ const contactsStyles = StyleSheet.create({
       borderRadius: 10,
       fontSize: 16,
       marginBottom: 20,
-      marginTop:10,
+      marginTop:30,
       marginHorizontal: 10,
       borderWidth: 0.5
     },
@@ -91,16 +94,26 @@ const contactsStyles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
     paddingHorizontal: 10,
-    paddingVertical: 5,
-    marginBottom: 5,
+    paddingVertical: 7,
+    marginBottom: 10,
     justifyContent:'space-between', 
     },
     contactDetails: { flex: 1, marginLeft: 10 },
     contactName: { fontSize: 16, fontWeight: 'bold' },
     contactEmail: { fontSize: 14, color: '#777' },
     contactIcons: { flexDirection: 'row' },
-    callIcon: { backgroundColor: '#ffd700', padding: 8, borderRadius: 10, marginRight: 10 },
-    messageIcon: { backgroundColor: '#007AFF', padding: 8, borderRadius: 10 },
+    callIcon: { backgroundColor: '#ffd700', marginRight: 10 ,height:45,width:45,borderRadius:10},
+    messageIcon: { backgroundColor: '#007AFF', height:45,width:45,borderRadius:10  },
+    personimage:{
+      width: 45,
+      height: 45,
+      borderRadius: 15
+    },
+    addIcon:{
+      height:40,
+      width: 40,
+      marginRight:10
+    }
   });
   
   export default ContactsScreen;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TextInput, TouchableOpacity, Image} from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 const TransactionsScreen = () => {
@@ -41,7 +41,7 @@ const TransactionsScreen = () => {
     <ScrollView style={transactionsStyles.container}>
       <View style={transactionsStyles.headerContainer}>
         <Text style={transactionsStyles.headerText}>Transactions</Text>
-        <Ionicons name="search" size={24} color="#000" />
+        
         <TouchableOpacity onPress={() => setIsSearchVisible(!isSearchVisible)}>
           
         </TouchableOpacity>
@@ -64,7 +64,7 @@ const TransactionsScreen = () => {
           <Text style={transactionsStyles.transactionHeader}>{month}</Text>
           {groupedTransactions[month].map((item, idx) => (
             <View key={idx} style={transactionsStyles.transactionItem}>
-              <Ionicons name="person-circle-outline" size={40} color="#000000" style={transactionsStyles.icon} />
+              <Image source={require('../images/person.png')} style={transactionsStyles.personimage}/>
               <View style={transactionsStyles.transactionDetails}>
                 <Text style={transactionsStyles.transactionName}>{item.name}</Text>
                 <Text style={transactionsStyles.transactionDate}>{item.date}</Text>
@@ -90,6 +90,9 @@ const transactionsStyles = StyleSheet.create({
     padding: 10,
     marginTop: 60,
     marginBottom: 5,
+    borderBottomWidth: 1,  // Adds a thin line at the bottom of the header
+      borderBottomColor: '#dcdcdc',  // Customize color as desired
+      shadowColor: 'transparent',
   },
   headerText: {
     fontSize: 24,
@@ -127,7 +130,7 @@ const transactionsStyles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 8,
     marginBottom: 5,
-    marginLeft: 10,
+    marginLeft: 5,
     justifyContent:'space-between', // Ensures space between icon, transaction details, and amount
   },
   icon: {
@@ -156,6 +159,14 @@ const transactionsStyles = StyleSheet.create({
     marginLeft: 10,
      // Adds some spacing between the text and icon
   },
+  personimage:{
+    width: 45,
+    height: 45,
+    borderRadius: 15,
+    marginRight: 10,
+    
+    
+  }
 });
 
 export default TransactionsScreen;

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { SafeAreaView, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 
@@ -9,6 +10,8 @@ import Dashboard from './Screens/Dashboard';
 import TransactionsScreen from './Screens/TransactionsScreen';
 import ContactsScreen from './Screens/ContactsScreen';
 import ProfileScreen from './Screens/ProfileScreen';
+import SendMoney from './Screens/sendMoney';
+import RequestMoney from './Screens/requestMoney';
 
 // Import images
 import homeIcon from './images/home_icon.png';
@@ -17,6 +20,17 @@ import contactsIcon from './images/contacts_icon.png';
 import profileIcon from './images/user_icon.png';
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+const DashboardStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Dashboard" component={Dashboard} />
+      <Stack.Screen name="SendMoney" component={SendMoney} />
+      <Stack.Screen name="RequestMoney" component={RequestMoney} />
+    </Stack.Navigator>
+  );
+};
 
 const App = () => {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -45,7 +59,7 @@ const App = () => {
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={({ route }) => ({
-            tabBarIcon: ({ color, size,focused }) => {
+            tabBarIcon: ({ color, size, focused }) => {
               let iconSource;
 
               if (route.name === 'Home') {
@@ -60,25 +74,25 @@ const App = () => {
 
               return (
                 <Image
-          source={iconSource}
-          style={{
-            width: focused ? size * 1.2 : size, // Increase size when active
-            height: focused ? size * 1.2 : size,
-            tintColor: color,
-          }}
-          resizeMode="contain"
-        />
+                  source={iconSource}
+                  style={{
+                    width: focused ? size * 1.2 : size,
+                    height: focused ? size * 1.2 : size,
+                    tintColor: color,
+                  }}
+                  resizeMode="contain"
+                />
               );
             },
             tabBarActiveTintColor: '#000000',
             tabBarInactiveTintColor: 'gray',
-            tabBarLabelStyle:{
+            tabBarLabelStyle: {
               fontWeight: 'bold'
             },
             headerShown: false,
           })}
         >
-          <Tab.Screen name="Home" component={Dashboard} />
+          <Tab.Screen name="Home" component={DashboardStack} />
           <Tab.Screen name="Transactions" component={TransactionsScreen} />
           <Tab.Screen name="Contacts" component={ContactsScreen} />
           <Tab.Screen name="Profile" component={ProfileScreen} />

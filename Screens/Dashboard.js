@@ -1,9 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+
 
 // Dashboard Screen Component
 const Dashboard = () => {
+  const navigation = useNavigation();
   return (
     <ScrollView style={dashboardStyles.container}>
       {/* Header */}
@@ -21,11 +23,18 @@ const Dashboard = () => {
       </View>
 
       {/* Buttons */}
+      
       <View style={dashboardStyles.buttonsContainer}>
-        <TouchableOpacity style={dashboardStyles.sendButton}>
+        <TouchableOpacity
+          style={dashboardStyles.sendButton}
+          onPress={() => navigation.navigate('SendMoney')}
+        >
           <Text style={dashboardStyles.buttonText}>Send Money</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={dashboardStyles.requestButton}>
+        <TouchableOpacity
+          style={dashboardStyles.requestButton}
+          onPress={() => navigation.navigate('RequestMoney')}
+        >
           <Text style={dashboardStyles.buttonText}>Request Money</Text>
         </TouchableOpacity>
       </View>

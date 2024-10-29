@@ -15,9 +15,9 @@ const ProfileScreen = () => {
 
       <View style={styles.profileSection}>
         <View style={styles.profilePicture}>
-          <Text style={styles.profileInitial}>D</Text>
+          <Text style={styles.profileInitial}>P</Text>
         </View>
-        <Text style={styles.profileName}>Danish Choudhary</Text>
+        <Text style={styles.profileName}>Praveer Jaggi</Text>
       </View>
 
       <ScrollView contentContainerStyle={styles.optionsList}>
@@ -59,13 +59,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 20,
-    paddingVertical: 5,
+    paddingVertical: 20,
     backgroundColor: '#f4f4f4',
-    marginLeft: 115,
+    marginLeft: 105,
     marginTop: 40
   },
   title: {
-    fontSize: 18,
+    fontSize: 24,
     fontWeight: '600',
     color: '#333',
   },

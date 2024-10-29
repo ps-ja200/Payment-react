@@ -18,7 +18,7 @@ const Dashboard = () => {
 
       {/* Balance Section */}
       <View style={dashboardStyles.balanceSection}>
-        <Text style={dashboardStyles.greetingText}>Hi, Danish!</Text>
+        <Text style={dashboardStyles.greetingText}>Hi, Praveer!</Text>
         <Text style={dashboardStyles.balanceText}>Total Balance</Text>
         <Text style={dashboardStyles.amountText}>₹16551</Text>
         <Image source={require('../images/noti.png')} style={dashboardStyles.notificationIcon} />

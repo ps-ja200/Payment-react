@@ -4,19 +4,19 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, Image, Moda
 const RequestMoney = ({ route, navigation }) => {
     const { name } = route.params;
 
-    // State for payment amount, note, and success message
+    
     const [amount, setAmount] = useState('');
     const [note, setNote] = useState('');
     const [showSuccess, setShowSuccess] = useState(false);
 
     const handleRequestPayment = () => {
-        // Validate input
+        
         if (!amount || isNaN(amount) || parseFloat(amount) <= 0) {
             Alert.alert('Invalid Amount', 'Please enter a valid payment amount.');
             return;
         }
 
-        // Show success modal and reset input fields
+        
         setShowSuccess(true);
         setAmount('');
         setNote('');

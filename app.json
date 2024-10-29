@@ -16,7 +16,8 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.anonymous.react"
+      "package": "com.anonymous.react",
+      "enableHermes": false
     }
   }
 }

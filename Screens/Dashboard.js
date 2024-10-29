@@ -2,11 +2,13 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+// Dashboard Screen Component
 const Dashboard = () => {
   const navigation = useNavigation();
   
   return (
     <ScrollView style={dashboardStyles.container}>
+      {/* Header */}
       <View style={dashboardStyles.header}>
         <Text style={dashboardStyles.headerText}>Dashboard</Text>
         <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
@@ -14,6 +16,7 @@ const Dashboard = () => {
         </TouchableOpacity>
       </View>
 
+      {/* Balance Section */}
       <View style={dashboardStyles.balanceSection}>
         <Text style={dashboardStyles.greetingText}>Hi, Praveer!</Text>
         <Text style={dashboardStyles.balanceText}>Total Balance</Text>
@@ -21,6 +24,7 @@ const Dashboard = () => {
         <Image source={require('../images/noti.png')} style={dashboardStyles.notificationIcon} />
       </View>
 
+      {/* Buttons */}
       <View style={dashboardStyles.buttonsContainer}>
         <TouchableOpacity
           style={dashboardStyles.sendButton}
@@ -36,6 +40,7 @@ const Dashboard = () => {
         </TouchableOpacity>
       </View>
 
+      {/* Transaction List */}
       <View style={dashboardStyles.transactionHeader}>
         <Text style={dashboardStyles.transactionText}>Last Transactions</Text>
         <TouchableOpacity>
@@ -43,6 +48,7 @@ const Dashboard = () => {
         </TouchableOpacity>
       </View>
 
+      {/* Transactions */}
       <View style={dashboardStyles.transactionList}>
         {[
           { name: 'Yara Khalil', date: 'Oct 14, 10:24 AM', amount: '₹451', image: require('../images/person send.png') },
@@ -108,7 +114,7 @@ const dashboardStyles = StyleSheet.create({
     paddingVertical: 12,
   },
   profileImage: { width: 40, height: 40, borderRadius: 25 },
-  transactionImage: { width: 45, height: 45, borderRadius: 10 }, 
+  transactionImage: { width: 45, height: 45, borderRadius: 10 }, // Adjust this as needed for each image
   transactionDetails: { flex: 1, marginLeft: 10 },
   transactionName: { fontSize: 16, fontWeight: 'bold' },
   transactionDate: { fontSize: 14, color: '#777' },

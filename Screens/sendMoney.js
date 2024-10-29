@@ -13,7 +13,7 @@ const SendMoney = ({ route, navigation }) => {
             return;
         }
 
-        // Show success message and reset form
+        
         setShowSuccess(true);
         setAmount('');
         setNote('');
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
         tintColor: '#000000',
         marginLeft: 10,
     },
-    // Success Message Modal Styles
+    
     modalContainer: {
         flex: 1,
         backgroundColor: 'rgba(0, 0, 0, 0.5)',

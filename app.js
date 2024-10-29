@@ -33,7 +33,7 @@ const DashboardStack = () => {
   );
 };
 
-// Bottom Tab Navigator
+
 const TabNavigator = () => (
   <Tab.Navigator
     screenOptions={({ route }) => ({
@@ -103,7 +103,7 @@ const App = () => {
   }, []);
 
   if (!fontsLoaded) {
-    return null; // Don't render anything until fonts are loaded
+    return null; 
   }
 
   return (

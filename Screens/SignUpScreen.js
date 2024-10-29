@@ -5,12 +5,10 @@ import { useNavigation } from '@react-navigation/native';
 const SignupScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
-      {/* Blue section */}
+      
       <View style={styles.blueBackground}>
-        <View style={styles.logoContainer}>
-          {/* Main logo */}
-          <Image source={require('../images/Vector.png')} style={styles.logo} />
-          {/* Nested logo (logo1) */}
+        <View style={styles.logoContainer}>          
+          <Image source={require('../images/Vector.png')} style={styles.logo} />          
           <Image source={require('../images/Vector1.png')} style={styles.logo1} />
         </View>
         <Text style={styles.headerText}>PaySafe</Text>
@@ -18,11 +16,7 @@ const SignupScreen = ({navigation}) => {
           The Best Way to <Text style={styles.boldText}>Transfer Money</Text> Safely
         </Text>
       </View>
-
-      {/* Divider line */}
       <View style={styles.divider} />
-
-      {/* White section */}
       <View style={styles.whiteBackground}>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Dashboard')}>
           <Text style={styles.buttonText}>Get started</Text>
@@ -50,7 +44,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 15,
-    position: 'relative', // Enable positioning for nested logo
+    position: 'relative', 
   },
   logo: {
     width: '100%',
@@ -58,8 +52,8 @@ const styles = StyleSheet.create({
   },
   logo1: {
     width: 40, 
-    height: 40, // Adjust to be smaller than the main logo
-    position: 'absolute', // Position this logo on top of the main logo
+    height: 40, 
+    position: 'absolute', o
   },
   headerText: {
     fontSize: 45,
@@ -87,15 +81,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     alignItems: 'center',
     paddingVertical: 20,
-    paddingHorizontal: 30, // Adjust padding as needed
+    paddingHorizontal: 30, 
   },
   button: {
     backgroundColor: '#007bff',
     paddingVertical: 13, 
     paddingHorizontal: 10,
     borderRadius: 13,
-    width: '97%', // Set button width to 80% of the screen width
-    alignItems: 'center', // Center text within the button
+    width: '97%', 
+    alignItems: 'center', 
     top:30
     
   },

@@ -24,7 +24,6 @@ const RequestMoney = ({ route, navigation }) => {
 
     return (
         <View style={styles.container}>
-            {/* Header with Back Button */}
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Image 
@@ -35,7 +34,7 @@ const RequestMoney = ({ route, navigation }) => {
                 <Text style={styles.headerTitle}>Request Money</Text>
             </View>
 
-            {/* Profile Section */}
+            
             <View style={styles.profileSection}>
                 <View style={styles.profileImage}>
                     <Text style={styles.profileInitial}>{name.charAt(0)}</Text>
@@ -45,7 +44,7 @@ const RequestMoney = ({ route, navigation }) => {
                 </View>
             </View>
 
-            {/* Payment Amount Input */}
+            
             <Text style={styles.label}>Payment Amount</Text>
             <TextInput
                 style={[styles.input, styles.amountInput]}
@@ -55,7 +54,7 @@ const RequestMoney = ({ route, navigation }) => {
                 onChangeText={setAmount}
             />
 
-            {/* Payment Note Input */}
+            
             <Text style={styles.label}>Payment Note</Text>
             <TextInput
                 style={[styles.input, styles.noteInput]}
@@ -65,7 +64,7 @@ const RequestMoney = ({ route, navigation }) => {
                 onChangeText={setNote}
             />
 
-            {/* Request Payment Button */}
+           
             <TouchableOpacity style={styles.sendButton} onPress={handleRequestPayment}>
                 <Image 
                     source={require('../images/request_icon.png')} 
@@ -74,7 +73,7 @@ const RequestMoney = ({ route, navigation }) => {
                 <Text style={styles.sendButtonText}>Request Payment</Text>
             </TouchableOpacity>
 
-            {/* Success Message Modal */}
+            
             {showSuccess && (
                 <Modal
                     transparent={true}
@@ -194,7 +193,7 @@ const styles = StyleSheet.create({
         tintColor: '#000000',
         marginLeft: 10,
     },
-    // Success Message Modal Styles
+    
     modalContainer: {
         flex: 1,
         backgroundColor: 'rgba(0, 0, 0, 0.5)',

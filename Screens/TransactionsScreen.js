@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TextInput, TouchableOpacity, Image} from 'react-native';
-import Ionicons from '@expo/vector-icons/Ionicons';
 
 const TransactionsScreen = () => {
   const transactions = [
-    // October 2020 Transactions
+    
     { name: 'Ahmad Ibrahim', date: 'Oct 02, 01:19 AM', amount: '₹800', month: 'October 2020' },
     { name: 'Sahar Fawzi', date: 'Oct 10, 04:35 PM', amount: '₹920', month: 'October 2020' },
     { name: 'Hiba Saleh', date: 'Oct 15, 05:45 AM', amount: '₹1667', month: 'October 2020' },
@@ -12,7 +11,7 @@ const TransactionsScreen = () => {
     { name: 'Reem Khaled', date: 'Oct 22, 08:40 PM', amount: '₹1340', month: 'October 2020' },
     { name: 'Yara Khalil', date: 'Oct 28, 11:20 AM', amount: '₹2450', month: 'October 2020' },
 
-    // September 2020 Transactions
+    
     { name: 'Sara Ibrahim', date: 'Sep 02, 03:15 PM', amount: '₹2670', month: 'September 2020' },
     { name: 'Ahmad Ismail', date: 'Sep 07, 09:45 AM', amount: '₹1100', month: 'September 2020' },
     { name: 'Reem Khaled', date: 'Sep 12, 01:50 PM', amount: '₹3200', month: 'September 2020' },
@@ -45,9 +44,6 @@ const TransactionsScreen = () => {
             <Image source={require('../images/search_icon.png')} style={transactionsStyles.transactionimage} />
           </TouchableOpacity>
        </View>
-
-
-      {/* Search Input (visible only when isSearchVisible is true) */}
       {isSearchVisible && (
         <View style={transactionsStyles.searchContainer}>
           <TextInput
@@ -86,12 +82,12 @@ const transactionsStyles = StyleSheet.create({
   headerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between', // Ensures space between header text and search icon
+    justifyContent: 'space-between', 
     padding: 10,
     marginTop: 60,
     marginBottom: 5,
-    borderBottomWidth: 1,  // Adds a thin line at the bottom of the header
-      borderBottomColor: '#dcdcdc',  // Customize color as desired
+    borderBottomWidth: 1,  
+      borderBottomColor: '#dcdcdc',  
       shadowColor: 'transparent',
     paddingBottom:15
   },
@@ -132,7 +128,7 @@ const transactionsStyles = StyleSheet.create({
     paddingVertical: 8,
     marginBottom: 5,
     marginLeft: 5,
-    justifyContent:'space-between', // Ensures space between icon, transaction details, and amount
+    justifyContent:'space-between', 
   },
   icon: {
     marginRight: 10,
@@ -167,7 +163,7 @@ const transactionsStyles = StyleSheet.create({
     height: 30,
     marginLeft: 60,
     marginBottom: 5,
-    resizeMode: 'contain',  // Scales the image to fit the width while maintaining aspect ratio
+    resizeMode: 'contain',  
   }
 });
 

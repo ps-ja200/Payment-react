@@ -2,16 +2,18 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-
 // Dashboard Screen Component
 const Dashboard = () => {
   const navigation = useNavigation();
+  
   return (
     <ScrollView style={dashboardStyles.container}>
       {/* Header */}
       <View style={dashboardStyles.header}>
         <Text style={dashboardStyles.headerText}>Dashboard</Text>
-        <Image source={require('../images/person.png')} style={dashboardStyles.profileImage} />
+        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+          <Image source={require('../images/person.png')} style={dashboardStyles.profileImage} />
+        </TouchableOpacity>
       </View>
 
       {/* Balance Section */}
@@ -23,17 +25,16 @@ const Dashboard = () => {
       </View>
 
       {/* Buttons */}
-      
       <View style={dashboardStyles.buttonsContainer}>
         <TouchableOpacity
           style={dashboardStyles.sendButton}
-          onPress={() => navigation.navigate('SendMoney')}
+          onPress={() => navigation.navigate('ContactsScreen')} // Navigate to ContactsScreen
         >
           <Text style={dashboardStyles.buttonText}>Send Money</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={dashboardStyles.requestButton}
-          onPress={() => navigation.navigate('RequestMoney')}
+          onPress={() => navigation.navigate('ContactsScreen')} // Navigate to RequestMoney screen
         >
           <Text style={dashboardStyles.buttonText}>Request Money</Text>
         </TouchableOpacity>
@@ -79,14 +80,14 @@ const dashboardStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 30
+    marginTop: 30,
   },
   headerText: { color: '#fff', fontSize: 28, fontWeight: 'bold' },
   balanceSection: {
     backgroundColor: '#007AFF',
     padding: 20,
     alignItems: 'flex-start',
-    paddingBottom: 50
+    paddingBottom: 50,
   },
   greetingText: { color: '#fff', fontSize: 18 },
   balanceText: { color: '#fff', fontSize: 16, marginTop: 10 },

@@ -3,15 +3,16 @@ import { SafeAreaView, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+
 
 import Dashboard from './Screens/Dashboard';
 import TransactionsScreen from './Screens/TransactionsScreen';
 import ContactsScreen from './Screens/ContactsScreen';
 import ProfileScreen from './Screens/ProfileScreen';
-import SendMoney from './Screens/sendMoney';
-import RequestMoney from './Screens/requestMoney';
+import SendMoney from './Screens/SendMoney';
+import RequestMoney from './Screens/RequestMoney';
 
 // Import images
 import homeIcon from './images/home_icon.png';
@@ -26,6 +27,7 @@ const DashboardStack = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Dashboard" component={Dashboard} />
+      <Stack.Screen name="ContactsScreen" component={ContactsScreen} />
       <Stack.Screen name="SendMoney" component={SendMoney} />
       <Stack.Screen name="RequestMoney" component={RequestMoney} />
     </Stack.Navigator>
@@ -87,9 +89,12 @@ const App = () => {
             tabBarActiveTintColor: '#000000',
             tabBarInactiveTintColor: 'gray',
             tabBarLabelStyle: {
-              fontWeight: 'bold'
+              fontWeight: 'bold',
             },
             headerShown: false,
+            tabBarStyle: {
+              display: getFocusedRouteNameFromRoute(route) === 'SendMoney' || getFocusedRouteNameFromRoute(route) === 'RequestMoney' ? 'none' : 'flex',
+            },
           })}
         >
           <Tab.Screen name="Home" component={DashboardStack} />
